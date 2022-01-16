@@ -57,75 +57,75 @@ namespace spirit {
  */
 class Spirit : public ExtendMotor {
 public:
-  /** Create a CAN Motor interface
-   *
-   * @param can connect to can pins
-   * @param dip Slave DPI value
-   * @param number Slave motor number
-   */
-  Spirit(CAN &can, unsigned int dip, unsigned int number = 0);
+    /** Create a CAN Motor interface
+     *
+     * @param can connect to can pins
+     * @param dip Slave DPI value
+     * @param number Slave motor number
+     */
+    Spirit(CAN &can, unsigned int dip, unsigned int number = 0);
 
-  /** Set the duty cycle
-   *
-   * @param duty_cycle duty cycle to set
-   */
-  void duty_cycle(float value) override;
+    /** Set the duty cycle
+     *
+     * @param duty_cycle duty cycle to set
+     */
+    void duty_cycle(float value) override;
 
-  Spirit &operator=(const float value) override;
+    Spirit &operator=(const float value) override;
 
-  /** Set the state
-   *
-   * @param type state to set
-   */
-  void state(State type) override;
+    /** Set the state
+     *
+     * @param type state to set
+     */
+    void state(State type) override;
 
-  Spirit &operator=(const State type) override;
+    Spirit &operator=(const State type) override;
 
-  /** Set the rise level
-   *
-   * @param level rise level to set
-   */
-  void rise_level(ChangeLevel level) override;
+    /** Set the rise level
+     *
+     * @param level rise level to set
+     */
+    void rise_level(ChangeLevel level) override;
 
-  /** Set the fall level
-   *
-   * @param level fall level to set
-   */
-  void fall_level(ChangeLevel level) override;
+    /** Set the fall level
+     *
+     * @param level fall level to set
+     */
+    void fall_level(ChangeLevel level) override;
 
-  /** Write a CANMessage to the bus.
-   *
-   *  @param msg The CANMessage to write.
-   *
-   *  @returns
-   *    0 if write failed,
-   *    1 if write successful
-   */
-  virtual int write(void);
+    /** Write a CANMessage to the bus.
+     *
+     *  @param msg The CANMessage to write.
+     *
+     *  @returns
+     *    0 if write failed,
+     *    1 if write successful
+     */
+    virtual int write(void);
 
 protected:
-  CAN &_can;
-  CANMessage _normal_msg;
+    CAN &      _can;
+    CANMessage _normal_msg;
 
-  /** Update the duty cycle to MotorDriver
-   *
-   * @param duty_cycle duty cycle to update
-   */
-  static void update_duty_cycle_data(unsigned char *data, float value);
+    /** Update the duty cycle to MotorDriver
+     *
+     * @param duty_cycle duty cycle to update
+     */
+    static void update_duty_cycle_data(unsigned char *data, float value);
 
-  /** Update the state to MotorDriver
-   *
-   * @param type state to update
-   */
-  static void update_state_data(unsigned char *data, State type);
+    /** Update the state to MotorDriver
+     *
+     * @param type state to update
+     */
+    static void update_state_data(unsigned char *data, State type);
 
-  static void update_rise_level_data(unsigned char *data, ChangeLevel level);
+    static void update_rise_level_data(unsigned char *data, ChangeLevel level);
 
-  static void update_fall_level_data(unsigned char *data, ChangeLevel level);
+    static void update_fall_level_data(unsigned char *data, ChangeLevel level);
 
-  static constexpr int offset_id_number = 0x300;
+    static constexpr int offset_id_number = 0x300;
 };
 
-} // namespace spirit
+}  // namespace spirit
 
-#endif // SPIRIT_SPIRIT_H
+#endif  // SPIRIT_SPIRIT_H
