@@ -10,7 +10,7 @@ namespace spirit {
 Spirit::Spirit(CAN &can, unsigned int dip, unsigned int number)
     : _can(can)
 {
-    _normal_msg.id  = dip * 16 + number * 2 + offset_id_number;
+    _normal_msg.id  = dip * 16U + number * 2U + offset_id_number;
     _normal_msg.len = 4U;
 }
 
