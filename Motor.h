@@ -18,11 +18,6 @@ class Motor {
 public:
     Motor();
 
-    /** Initialize data
-     *
-     */
-    void init();
-
     /** Set the duty cycle
      *
      * @param duty_cycle duty cycle to set

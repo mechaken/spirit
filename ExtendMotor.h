@@ -29,11 +29,6 @@ class ExtendMotor : public Motor {
 public:
     ExtendMotor();
 
-    /** Initialize data
-    *
-    */
-    void init();
-
     /** Set the rise level
     *
     * @param level rise level to set

@@ -7,19 +7,8 @@
 namespace spirit {
 
 ExtendMotor::ExtendMotor()
+    : Motor(), _rise_level(default_change_level), _fall_level(default_change_level), _ttl(default_ttl), _decay(default_decay)
 {
-    init();
-}
-
-void ExtendMotor::init()
-{
-    _duty_cycle   = 0.0F;
-    _state        = default_state;
-    _rise_level   = default_change_level;
-    _fall_level   = default_change_level;
-    _pulse_period = default_pulse_period;
-    _ttl          = default_ttl;
-    _decay        = default_decay;
 }
 
 void ExtendMotor::rise_level(ChangeLevel level)
@@ -82,10 +71,10 @@ unsigned int ExtendMotor::ttl() const
     return _ttl;
 }
 
-void ExtendMotor::decay(Decay value)
+void ExtendMotor::decay(Decay type)
 {
-    if ((Decay::Begin <= value) && (value < Decay::End)) {
-        _decay = value;
+    if ((Decay::Begin <= type) && (type < Decay::End)) {
+        _decay = type;
     }
 }
 
