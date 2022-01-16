@@ -38,7 +38,7 @@ Motor::operator float()
 
 void Motor::state(State type)
 {
-    if ((static_cast<State>(0) <= type) && (type < State::TotalNum)) {
+    if ((State::Begin <= type) && (type < State::End)) {
         _state = type;
     }
 }

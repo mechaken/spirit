@@ -6,21 +6,21 @@
 namespace spirit {
 
 enum class ChangeLevel {
+    Begin  = 0,
     OFF    = 0,  // Direct
     Low    = 2,  // Rapid
     Middle = 4,
     High   = 6,
     Max    = 7,  // slow
-
-    TotalNum,
+    End,
 };
 
 enum class Decay {
-    Slow,
+    Begin = 0,
+    Slow  = Begin,
     Mixed,
     Fast,
-
-    TotalNum,
+    End,
 };
 
 /** A Motor is abstract base class for moving the motor
@@ -128,9 +128,9 @@ protected:
     *
     * @param level level to convert
     */
-    static float convert_level(ChangeLevel level);
+    static float level2unit(ChangeLevel level);
 };
 
 }  // namespace spirit
 
-#endif  // SPIRIT_TARGET_EXTEND_MOTOR_H
+#endif  // SPIRIT_EXTEND_MOTOR_H

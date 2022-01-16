@@ -1,5 +1,7 @@
 #include "ExtendMotor.h"
 
+#include <cstddef>
+
 #include "Motor.h"
 
 namespace spirit {
@@ -22,9 +24,9 @@ void ExtendMotor::init()
 
 void ExtendMotor::rise_level(ChangeLevel level)
 {
-    if ((static_cast<ChangeLevel>(0) <= level) && (level < ChangeLevel::TotalNum)) {
+    if ((ChangeLevel::Begin <= level) && (level < ChangeLevel::End)) {
         _rise_level = level;
-        _rise_unit  = convert_level(_rise_level);
+        _rise_unit  = level2unit(_rise_level);
     }
 }
 
@@ -35,9 +37,9 @@ ChangeLevel ExtendMotor::rise_level() const
 
 void ExtendMotor::fall_level(ChangeLevel level)
 {
-    if ((static_cast<ChangeLevel>(0) <= level) && (level < ChangeLevel::TotalNum)) {
+    if ((ChangeLevel::Begin <= level) && (level < ChangeLevel::End)) {
         _fall_level = level;
-        _fall_unit  = convert_level(_fall_level);
+        _fall_unit  = level2unit(_fall_level);
     }
 }
 
@@ -82,7 +84,7 @@ unsigned int ExtendMotor::ttl() const
 
 void ExtendMotor::decay(Decay value)
 {
-    if ((static_cast<Decay>(0) <= value) && (value < Decay::TotalNum)) {
+    if ((Decay::Begin <= value) && (value < Decay::End)) {
         _decay = value;
     }
 }
@@ -92,7 +94,7 @@ Decay ExtendMotor::decay() const
     return _decay;
 }
 
-float ExtendMotor::convert_level(ChangeLevel level)
+float ExtendMotor::level2unit(ChangeLevel level)
 {
     // switch (level)
     // {
@@ -111,7 +113,7 @@ float ExtendMotor::convert_level(ChangeLevel level)
     }
 
     float value = 0.02F;
-    for (int i = 0; i < static_cast<int>(level); i++) {
+    for (size_t i = 0; i < static_cast<int>(level); i++) {
         value *= 0.7F;
     }
 
