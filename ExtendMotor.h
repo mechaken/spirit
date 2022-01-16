@@ -101,11 +101,11 @@ public:
 
     /** Set the control(LAP, SMB...)
     *
-    * @param decay to set
+    * @param type to set
     */
-    void decay(Decay value);
+    void decay(Decay type);
 
-    /** return the ttl(millisec)
+    /** return the control(LAP, SMB...)
     *
     * @returns
     *   decay
