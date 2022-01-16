@@ -111,15 +111,17 @@ protected:
      *
      * @param duty_cycle duty cycle to update
      */
-    void update_duty_cycle_data();
+    static void update_duty_cycle_data(unsigned char *data, float value);
 
     /** Update the state to MotorDriver
      *
      * @param type state to update
      */
-    void update_state_data();
+    static void update_state_data(unsigned char *data, State type);
 
-    void update_change_level_data();
+    static void update_rise_level_data(unsigned char *data, ChangeLevel level);
+
+    static void update_fall_level_data(unsigned char *data, ChangeLevel level);
 
     static constexpr int offset_id_number = 0x300;
 };
