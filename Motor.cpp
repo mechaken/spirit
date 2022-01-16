@@ -3,14 +3,8 @@
 namespace spirit {
 
 Motor::Motor()
+    : _duty_cycle(0.0F), _state(default_state), _pulse_period(default_pulse_period)
 {
-    init();
-}
-
-void Motor::init()
-{
-    _duty_cycle = 0.0F;
-    _state      = default_state;
 }
 
 void Motor::duty_cycle(float value)
