@@ -25,7 +25,7 @@ jobs:
       - name: build-mbed-cli
         run: |
           set -e
-          mbed .
+          mbed new .
           mbed deploy
           mbed compile -t GCC_ARM -m ${{ matrix.target }} --profile ${{ matrix.profile }}
   build-cli-v2:
