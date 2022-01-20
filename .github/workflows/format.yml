@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  format:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
       - uses: DoozyX/clang-format-lint-action@v0.13
@@ -26,8 +26,8 @@ jobs:
           git diff --exit-code --diff-filter=d --color
       - uses: EndBug/add-and-commit@v4
         with:
-          author_name: Clang Robot
+          author_name: Formatting Robot
           author_email: robot@example.com
-          message: "[update] clang-format changes"
+          message: "[update] format changes"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
