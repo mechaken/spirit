@@ -25,7 +25,6 @@ jobs:
           if [ -e .clang-format ]; then
             echo ".clang-format exists."
             sudo apt-get install clang-format-12
-            touch .codecheckignore
             find -type f \
               | ( grep '.*\.\(c\|cpp\|h\|hpp\)$' || true ) \
               | while read file; do clang-format-12 -i -style=file "${file}"; done
@@ -38,7 +37,6 @@ jobs:
           if [ -e .astylerc ]; then
             echo ".astylerc exists."
             sudo apt-get install astyle
-            touch .codecheckignore
             find -type f \
               | ( grep '.*\.\(c\|cpp\|h\|hpp\)$' || true ) \
               | while read file; do astyle -n --options=.astylerc "${file}"; done
