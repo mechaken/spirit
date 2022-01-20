@@ -1,4 +1,4 @@
-name: Run clang-format Linter
+name: Run format Linter
 
 on:
   push:
@@ -23,7 +23,6 @@ jobs:
           sudo apt install astyle
           git diff --name-only --diff-filter=d origin/${GITHUB_BASE_REF} \
             | ( grep '.*\.\(c\|cpp\|h\|hpp\)$' || true ) \
-            | ( grep -v -f .codecheckignore || true ) \
             | while read file; do astyle -n --options=.astylerc "${file}"; done
           git diff --exit-code --diff-filter=d --color
       - uses: EndBug/add-and-commit@v4
