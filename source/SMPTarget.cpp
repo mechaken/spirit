@@ -18,7 +18,7 @@ int SMPTarget::decode(const char *data, Motor &motor)
     auto state = static_cast<State>((data[2] & 0x60) >> 5);
 
     auto rise_level = static_cast<ChangeLevel>((data[2] & 0x1C) >> 2);
-    auto fall_level = static_cast<ChangeLevel>(((data[2] & 0x03) << 2) + (data[3] & 0x80));
+    auto fall_level = static_cast<ChangeLevel>(((data[2] & 0x03) << 2) + ((data[3] & 0x80) >> 7));
 
     motor.duty_cycle(duty_cycle);
     motor.state(state);
