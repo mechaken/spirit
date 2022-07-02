@@ -47,8 +47,8 @@ jobs:
       - name: Git commmit
         uses: EndBug/add-and-commit@v4
         with:
-          author_name: Formatting Robot
-          author_email: robot@example.com
+          author_name: github-actions[bot]
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: "[update] format changes"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
