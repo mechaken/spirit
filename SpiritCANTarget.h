@@ -19,7 +19,7 @@ public:
     char *get_smp_data();
 
 private:
-    CAN & _can;
+    CAN &_can;
     char *_smp;
 
     bool _has_new_message;

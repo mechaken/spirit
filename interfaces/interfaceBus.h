@@ -8,7 +8,7 @@ namespace spirit {
 namespace interface {
 
 struct Bus {
-    virtual ~Bus(){};
+    virtual ~Bus() {};
     virtual int write(SMPController &data) = 0;
     virtual int read()                     = 0;
 };

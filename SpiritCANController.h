@@ -15,7 +15,7 @@ public:
     int read() override;
 
 private:
-    CAN &         _can;
+    CAN          &_can;
     unsigned int  _id;
     unsigned char _len;
 
